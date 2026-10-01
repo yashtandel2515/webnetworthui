@@ -975,3 +975,52 @@ button:focus-visible, input:focus-visible, select:focus-visible {
   .trend-summary { flex-wrap: wrap; }
   .trend-summary > div:first-child > strong { font-size: 17px; }
 }
+
+.insurance-summary { margin-bottom: 18px; padding: 16px; border: 1px solid #e9e3f1; border-radius: 15px; background: #fff; }
+.insurance-summary-totals { display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 12px; padding: 12px; border-radius: 10px; background: #faf8fe; }
+.insurance-summary-totals > div { display: grid; align-content: start; gap: 6px; }
+.insurance-summary-totals span { color: #8592a7; font-size: 10px; }
+.insurance-summary-totals strong { color: #202238; font-size: 16px; }
+.insurance-type-table { width: 100%; margin-top: 14px; border-collapse: collapse; text-align: left; }
+.insurance-type-table caption { padding-bottom: 12px; color: #29263a; text-align: left; font-size: 12px; font-weight: 700; }
+.insurance-type-table th, .insurance-type-table td { padding: 11px 4px; border-bottom: 1px solid #f0edf3; font-size: 10px; }
+.insurance-type-table thead th { color: #8791a6; font-size: 9px; font-weight: 500; }
+.insurance-type-table td { color: #343147; }
+.insurance-type-table th:nth-child(2), .insurance-type-table td:nth-child(2) { text-align: center; }
+.insurance-type-table th:last-child, .insurance-type-table td:last-child { text-align: right; }
+.insurance-summary-note { margin: 12px 0 0; color: #8791a6; font-size: 9px; }
+@media (max-width: 560px) { .insurance-summary { padding: 12px; }.insurance-summary-totals { gap: 8px; }.insurance-summary-totals strong { font-size: 13px; } }
+
+.gold-valuation { display: grid; gap: 10px; padding: 14px; border: 1px solid #eadfc5; border-radius: 12px; background: #fffaf0; }
+.gold-valuation > div { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 10px; color: #857352; }
+.gold-valuation strong { color: #544225; }
+.gold-valuation-heading button { display: inline-flex; align-items: center; gap: 5px; color: #7134df; font-size: 9px; }
+.gold-valuation small, .gold-valuation p { margin: 0; color: #968568; font-size: 9px; line-height: 1.5; }
+
+.overview-content { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: 20px; padding: 10px 18px 18px; }
+.overview-balance { min-width: 0; }
+.overview-balance .overview-net-label, .overview-balance .overview-total { text-align: left; }
+.overview-balance .overview-net-label { margin-top: 0; }
+.overview-balance .overview-total { margin-top: 7px; font-size: clamp(20px, 2.1vw, 30px); overflow-wrap: anywhere; }
+.overview-balance .overview-change { justify-content: flex-start; padding: 10px 0 0; }
+.trend-compact { min-width: 0; padding: 8px 0 0 16px; margin: 0; border: 0; border-left: 1px solid #f0edf5; border-radius: 0; }
+.trend-compact .trend-heading { align-items: center; gap: 6px; }
+.trend-compact .trend-heading h2 { font-size: 10px; color: #8891a5; font-weight: 500; }
+.trend-details-button { display: inline-flex; gap: 5px; align-items: center; color: #7134df; font-size: 9px; font-weight: 700; padding: 5px 0; }
+.trend-compact .trend-graph { margin-top: 2px; }
+.trend-compact .trend-graph text { font-size: 19px; }
+.trend-compact .trend-data-note { font-size: 7px; margin-top: 6px; }
+.trend-compact .trend-hidden { min-height: 100px; font-size: 9px; }
+.networth-chart-dialog { box-sizing: border-box; width: min(860px, calc(100vw - 32px)); max-height: 90dvh; padding: 24px; margin: auto; overflow-y: auto; border: 1px solid #e8e0fa; border-radius: 20px; background: #fff; color: #343147; box-shadow: 0 24px 90px #21143535; }
+.networth-chart-dialog::backdrop { background: #18132280; backdrop-filter: blur(3px); }
+.chart-dialog-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.chart-dialog-heading h2 { margin: 0; font-size: 20px; color: #202238; }
+.chart-dialog-heading .close-button { flex-shrink: 0; background: #f7f3fd; display: grid; place-items: center; }
+.networth-chart-dialog .networth-trend { padding: 20px 0 0; border: 0; }
+@media (max-width: 560px) {
+  .overview-content { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 12px 16px 16px; }
+  .overview-balance .overview-total { font-size: 28px; }
+  .trend-compact { padding: 12px 0 0; border-left: 0; border-top: 1px solid #f0edf5; }
+  .networth-chart-dialog { padding: 18px 14px; }
+  .chart-dialog-heading h2 { font-size: 17px; }
+}
