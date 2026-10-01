@@ -12,7 +12,7 @@ function pointLabel(point, view) {
   return point.date.toLocaleDateString('en-IN', { month: 'short', year: '2-digit', timeZone: 'UTC' })
 }
 
-export default function NetWorthTrend({ netWorth, hidden, compact = false, onDetails }) {
+export default function NetWorthTrend({ netWorth, hidden, compact = false, hasHistory = true, onDetails }) {
   const [view, setView] = useState('Monthly')
   const [selected, setSelected] = useState(null)
   const history = buildTrendSeries(netWorth, view)
@@ -40,6 +40,8 @@ export default function NetWorthTrend({ netWorth, hidden, compact = false, onDet
     const position = ((event.clientX - box.left) / box.width * 640 - left) / width
     setSelected(Math.max(0, Math.min(points.length - 1, Math.round(position * (points.length - 1)))))
   }
+
+  if (!hasHistory) return <section className={`networth-trend${compact ? ' trend-compact' : ''}`} aria-label="Net worth history"><div className="trend-heading"><h2>{compact ? 'Last six months' : 'Net worth over time'}</h2></div><div className="empty-history"><span className="empty-history-icon" aria-hidden="true">↗</span><strong>No history yet</strong><p>Your trend will appear as balance history becomes available.</p></div></section>
 
   return <section className={`networth-trend${compact ? ' trend-compact' : ''}`} aria-labelledby={`${chartId}-title`}>
     <div className="trend-heading"><div><h2 id={`${chartId}-title`}>{compact ? 'Last six months' : 'Net worth over time'}</h2>{!compact && <p>{view === 'Monthly' ? 'Month-end balances · last 12 months' : view === 'Quarterly' ? 'Quarter-end balances · last 8 quarters' : view === 'Yearly' ? 'Year-end balances · current year to date' : 'All available monthly balances'}</p>}</div>{compact ? <button className="trend-details-button" onClick={onDetails}>View details <span aria-hidden="true">↗</span></button> : <div className="trend-views" role="group" aria-label="Net worth chart period">{views.map((item) => <button key={item} aria-pressed={view === item} onClick={() => { setView(item); setSelected(null) }}>{item}</button>)}</div>}</div>
